@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const secret = process.env.JWT_SECRET || 'seusecretdetoken';
 
 const jwtConfig = {
-  expiresIn: '7d',
+  expiresIn: '4min',
   algorithm: 'HS256',
 };
 
@@ -12,12 +12,17 @@ const encoder = (user) => {
   return token;
 };
 
-const decoder = (authorization) => {
-  const payload = jwt.verify(authorization, secret);
+const decoded = async (token) => {
+  try {
+    const payload = jwt.verify(token, secret);
+    console.log(payload);
     return payload;
+  } catch (err) {
+    return { error: true };
+  }
 };
 
 module.exports = {
   encoder,
-  decoder,
+  decoded,
 };
