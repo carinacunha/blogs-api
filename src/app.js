@@ -13,10 +13,11 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/user/:id', tokenValidation.validation, userController.getUserById);
-app.get('/user', tokenValidation.validation, userController.getUsers);
 app.post('/login', loginValidation.validation, loginController.getUserByEmail);
+app.get('/user', tokenValidation.validation, userController.getUsers);
+app.get('/user/:id', tokenValidation.validation, userController.getUserById);
 app.post('/user', userValidation.validation, userController.createUser);
+app.get('/categories', tokenValidation.validation, categoryController.getCategories);
 app.post('/categories', 
   tokenValidation.validation,
   categoryValidation.validation, 
