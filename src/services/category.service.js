@@ -6,11 +6,17 @@ const createCategory = async ({ name }) => {
 };
 
 const getCategories = async () => {
-  const allUsers = await Category.findAll();
-  return allUsers;
+  const allCatergories = await Category.findAll();
+  return allCatergories;
+};
+
+const getCategoryById = async (id) => {
+  const category = await Category.findByPk(id);
+  return category;
 };
 
 module.exports = {
   createCategory,
   getCategories,
+  getCategoryById,
 };

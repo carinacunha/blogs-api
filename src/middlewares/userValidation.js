@@ -3,7 +3,6 @@ const validation = (req, res, next) => {
   const regex = /^\S+@\S+\.\S+$/;
 
   const emailFormatOk = regex.test(email);
-  console.log(!emailFormatOk);
 
   if (displayName.length < 8) {
     return res.status(400)

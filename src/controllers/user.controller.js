@@ -5,14 +5,18 @@ const { encoder } = require('../auth/validateJWT');
 
 const createUser = async (req, res) => {
     const { displayName, email, password, image } = req.body;
+    
     const user = await loginService.findByEmail(email);
+  
     if (user) {
       return res.status(409).json({ message: 'User already registered' });
     }
 
     if (!user) {
-      await userService.createUser({ displayName, email, password, image });
-      const token = encoder({ email });
+      const newUser = await userService.createUser({ displayName, email, password, image });
+      const { id } = newUser.dataValues;
+      req.user = newUser;
+      const token = encoder({ id, email });
       return res.status(201).json({ token });
     }
 };
