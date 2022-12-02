@@ -24,6 +24,7 @@ app.get('/categories', tokenValidation.validation, categoryController.getCategor
 app.post('/categories', tokenValidation.validation,
   categoryValidation.validation, categoryController.createCategory);
 app.get('/post', tokenValidation.validation, postController.getPosts);
+app.get('/post/:id', tokenValidation.validation, postController.getPostById);
 app.post('/post', tokenValidation.validation,
 postValidation.validation, postController.createPost);
 
