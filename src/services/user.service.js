@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, BlogPost } = require('../models');
 
 const createUser = async ({ displayName, email, password, image }) => {
   const userCreated = await User.create({ displayName, email, password, image });
@@ -15,9 +15,9 @@ const getUserById = async (userId) => {
   return user;
 };
 
-const deleteUserById = async (userId) => {
-  console.log(userId);
-  const userDeleted = await User.destroy({ where: { id: userId } });
+const deleteUserById = async (id) => {
+  await BlogPost.destroy({ where: { userId: id } });
+  const userDeleted = await User.destroy({ where: { id } });
   return userDeleted;
 };
 

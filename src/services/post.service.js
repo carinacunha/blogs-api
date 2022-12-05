@@ -3,7 +3,6 @@ const { BlogPost, PostCategory, Category, User } = require('../models');
 
 const createPost = async ({ userId, title, content, categoryIds }) => {
   const post = await BlogPost.create({ title, content, userId });
-  
   await Promise.all(categoryIds
     .map((cat) => PostCategory.create({ postId: post.id, categoryId: cat })));
   return post;
@@ -29,6 +28,24 @@ const getPostById = async (postId) => {
   return post;
 };
 
+const getByTerm = async (query) => {
+  console.log(query);
+  const result = await BlogPost.findAll({
+    where: {
+      [Op.or]: [
+        { title: query },
+        { content: query },
+      ],
+    },
+    include: [
+      { model: User, as: 'user', attributes: { exclude: 'password' } },
+      { model: Category, as: 'categories', through: { attributes: [] } },
+    ],
+  });
+  console.log(result);
+  return result;
+};
+
 const updatePostById = async ({ id, title, content }) => {
    await BlogPost.update({ title, content }, {
     where: { id } });
@@ -42,28 +59,12 @@ const deletePostById = async (id) => {
   return deletedPost;
 };
 
-const getByQuery = async (query) => {
-  const result = await BlogPost.findAll({
-    where: {
-      [Op.or]: [
-        { title: query },
-        { content: query },
-      ],
-    },
-    include: [
-      { model: User, as: 'user', attributes: { exclude: 'password' } },
-      { model: Category, as: 'categories', through: { attributes: [] } },
-    ],
-  });
-  return result;
-};
-
 module.exports = {
   createPost,
   getPosts,
   getPostById,
   updatePostById,
   deletePostById,
-  getByQuery,
+  getByTerm,
   
 };

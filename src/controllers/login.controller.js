@@ -5,9 +5,7 @@ const { encoder } = require('../auth/validateJWT');
 
 const getUserByEmail = async (req, res) => {
     const { email } = req.body;
-
     const user = await loginService.findByEmail(email);
-
     if (user) {
       const { id } = user;
       const token = encoder({ id, email });

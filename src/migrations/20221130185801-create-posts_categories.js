@@ -3,9 +3,8 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('posts_categories', {
-      postId: {
+      post_id: {
         type: Sequelize.INTEGER,
-        field: 'post_id',
         references: { 
           model: 'blog_posts',
           key: 'id',

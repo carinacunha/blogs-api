@@ -11,6 +11,7 @@ module.exports = (sequelize, _DataTypes) => {
       primaryKey: true 
     }
   },
+  
     {
       timestamps: false,
       underscored: true, 

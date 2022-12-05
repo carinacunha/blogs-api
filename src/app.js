@@ -20,19 +20,18 @@ app.post('/login', loginValidation.validation, loginController.getUserByEmail);
 app.get('/user', tokenValidation.validation, userController.getUsers);
 app.get('/user/:id', tokenValidation.validation, userController.getUserById);
 app.post('/user', userValidation.validation, userController.createUser);
-app.delete('/user/me', tokenValidation.validation, userController.deleteUser);
 
 app.get('/categories', tokenValidation.validation, categoryController.getCategories);
 app.post('/categories', tokenValidation.validation,
   categoryValidation.validation, categoryController.createCategory);
-
-app.get('/post/search', tokenValidation.validation, postController.getPostByQuery);
+app.get('/post/search', tokenValidation.validation, postController.getPostByTerm);
 app.get('/post', tokenValidation.validation, postController.getPosts);
 app.get('/post/:id', tokenValidation.validation, postController.getPostById);
 app.post('/post', tokenValidation.validation,
 postValidation.validation, postController.createPost);
 app.put('/post/:id', tokenValidation.validation, postController.updatePost);
 app.delete('/post/:id', tokenValidation.validation, postController.deletePost);
+app.delete('/user/me', tokenValidation.validation, userController.deleteUser);
 
 // ...
 
