@@ -9,19 +9,22 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      displayName: {
+
+      display_name: {
         allowNull: false,
         type: Sequelize.STRING,
-        field: 'display_name',
       },
+
       email: {
         allowNull: false,
         type: Sequelize.STRING,
       },
+
       password: {
         allowNull: false,
         type: Sequelize.STRING,
       },
+      
       image: {
         allowNull: false,
         type: Sequelize.STRING,
