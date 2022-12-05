@@ -25,6 +25,8 @@ app.delete('/user/me', tokenValidation.validation, userController.deleteUser);
 app.get('/categories', tokenValidation.validation, categoryController.getCategories);
 app.post('/categories', tokenValidation.validation,
   categoryValidation.validation, categoryController.createCategory);
+
+app.get('/post/search?', tokenValidation.validation, postController.getPostByQuery);
 app.get('/post', tokenValidation.validation, postController.getPosts);
 app.get('/post/:id', tokenValidation.validation, postController.getPostById);
 app.post('/post', tokenValidation.validation,
