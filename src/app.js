@@ -28,6 +28,7 @@ app.get('/post/:id', tokenValidation.validation, postController.getPostById);
 app.post('/post', tokenValidation.validation,
 postValidation.validation, postController.createPost);
 app.put('/post/:id', tokenValidation.validation, postController.updatePost);
+app.delete('/post/:id', tokenValidation.validation, postController.deletePost);
 
 // ...
 
