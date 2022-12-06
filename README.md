@@ -1,6 +1,6 @@
 # :sparkles: Blogs API #
 
-In this project an API and a database were developed for the production of content for a blog. This API was made in Node.js. 
+In this project an API and a database were developed for the production of content for a blog. This API was made in Node.js following software architecture model MSC. 
 
 ## 🎲 ER and Entity Diagram ##
 The relational database, represented in the figure below, was created using Sequelize (Object-relational map) to do a structural mapping between database entities and the objects they represent in JavaScript code. Endpoints were developed to connect to the database following REST principles.
