@@ -26,4 +26,4 @@ This project can be run locally or using docker. Whichever resource you choose, 
 3. Make sure you have installed node version 16
 4. Install the dependencies: ```npm install```
 
-✨ This project was developed during the Full Stack Web Development course at Trybe.
+**✨ This project was developed during the Full Stack Web Development course at Trybe.**
