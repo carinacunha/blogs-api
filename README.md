@@ -12,7 +12,7 @@ This project can be run locally or using docker. Whichever resource you choose, 
 
 ### :whale: Docker ###
 1. Clone the repository: ```git clone git@github.com:carinacunha/blogs-api.git```
-2. Navigate to the root of the repository: ```cd blogs-api``
+2. Navigate to the root of the repository: ```cd blogs-api```
 3. Make sure you have installed docker version 1.29 or higher
 4. Run the node and db services with the command: ```docker-compose up -d --build```
 5. Create an interactive terminal from the container: ```docker exec -it blogs_api bash```
