@@ -19,9 +19,8 @@ This project can be run locally or using docker. Whichever resource you choose, 
 6. Install the dependencies: ```npm install```
 
 ### :computer: Local ###
-1. Clone the repository 
-  - git@github.com:carinacunha/project-blogs-api.git
-2. Navigate to the root of the repository
+1. Clone the repository: ```git clone git@github.com:carinacunha/blogs-api.git```
+2. Navigate to the root of the repository: ```cd blogs-api```
 3. Make sure you have installed node version 16
 4. Install the dependencies: ```npm install```
 
