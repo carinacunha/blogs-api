@@ -1,6 +1,8 @@
 # Blogs API #
 
-## Aim ##
+![alt app](https://www.blogger.com/about/img/social/facebook-1200x630.jpg "img")
+
+## About ##
 
 In this project an API and a database were developed for the production of content for a blog. This API was made in Node.js following software architecture model MSC. 
 
